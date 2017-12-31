@@ -26,6 +26,7 @@ println(88.toChar())
 
 ## Strings
 Strings processing might be a little bit easier to deal with in Kotlin because it has basic methods to deal with normal cases.
+
 ```kotlin
 var str = "John is a boy."
 println("index 2 to 7 ${str.subSequence(2,7)}")
@@ -34,6 +35,7 @@ println(" the 2nd one ${str[1]}")
 ```
 ## Array
 Well, let's look at the code, no need to describe more.
+
 ```kotlin
 // new an array
 var arr = arrayOf(2, "soya", 1.2)
@@ -56,6 +58,7 @@ println(funArray[3])
 ```
 ## Ranges
 Kotlin provides [.. operator](https://kotlinlang.org/docs/reference/ranges.html) form helps to experss ranges.
+
 ```kotlin
 val valueTen = 1..10
 val charsAToZ = "A".."Z"
@@ -64,6 +67,7 @@ val threeToThirty = 3.rangeTo(30)
 ```
 ## Conditionals
 In Kotlin, [most of the coniditionals](https://kotlinlang.org/docs/reference/control-flow.html) are just like the ones in Java. So I'm going to introduce something that is not like Java. For instance, when id is in 0 to 5, it prints part one. If it's 6, it prints out part two. Also if it is 7, 8, or 9, part three will be printed. Anything else will print part four.
+
 ```kotlin
 when(id) {
   in 0..5 -> println("part one")
@@ -74,6 +78,7 @@ when(id) {
 ```
 ## Funtions
 In the example below, getSum function takes varargs as many integers and then return an integer. Functions is also easy to understand if you have learned other languages as well.
+
 ```kotlin
 fun main(args: Array<String>) {
   println("Sum = ${getSum(1,2,3)}")
@@ -96,6 +101,7 @@ It's worth to mention that Kotlin has the operators like Java 8 or RxJava that c
 
 ## Extension Functions
 Another useful feature will be [extension functions](https://kotlinlang.org/docs/reference/extensions.html). Just like C#, Kotlin also have extension functions. Let's take a look at examples from document.
+
 ```kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
