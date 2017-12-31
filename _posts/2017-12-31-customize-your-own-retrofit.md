@@ -139,7 +139,7 @@ public class RetrofitCallAdapter<T> implements CallAdapter<T, RetrofitCall<T>> {
     private final Type responseType;
     private final Executor executor;
 
-    public EtRetrofitCallAdapter(Type responseType, Executor executor) {
+    public RetrofitCallAdapter(Type responseType, Executor executor) {
         this.responseType = responseType;
         this.executor = executor;
     }
@@ -160,14 +160,14 @@ Basically, it just make new custom calls for the call adapter factory to let Ret
 ```java
 public class RetrofitCallAdapterFactory extends CallAdapter.Factory {
 
-    private static EtRetrofitCallAdapterFactory instance = null;
+    private static RetrofitCallAdapterFactory instance = null;
     private final Executor executor = new MainThreadExecutor();
 
-    private EtRetrofitCallAdapterFactory() {
+    private RetrofitCallAdapterFactory() {
 
     }
 
-    public static synchronized EtRetrofitCallAdapterFactory getInstance() {
+    public static synchronized RetrofitCallAdapterFactory getInstance() {
         if (instance == null) {
             instance = new EtRetrofitCallAdapterFactory();
         }
