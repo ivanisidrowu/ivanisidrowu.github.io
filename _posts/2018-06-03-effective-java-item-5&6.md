@@ -9,19 +9,19 @@ categories: Effective Java
 
 * Reuse immutable objects while you can.
 
-```Java
+```java
 String s = new String("fasdfasdf")
 ```
 
 Don't do this, it creates two strings each time it invokes. Instead, we should do...
 
-```Java
+```java
 String s = "fasdfasdf"
 ```
 
 * Prefer primitives to boxed primitives, and watch out for unintentional autoboxing.
 
-```Java
+```java
 // Slow program
 public static void main(String[] args) {
   Long sum = 0L;
@@ -41,7 +41,7 @@ I personally think this item is important to android development because many ca
 
 * Nulling out object references should be the exception rather than the norm, so we should scope the reference.
 
-```Java
+```java
 // Memoery leak example
 public class LeakedListActivity extends ListActivity {
 @Override
