@@ -31,3 +31,5 @@ builder.create();
 * Write more code
 
 You have to write another builder class. Another pointer is that it's harder to add parameters to the class which the builder create instance for you.
+
+This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.

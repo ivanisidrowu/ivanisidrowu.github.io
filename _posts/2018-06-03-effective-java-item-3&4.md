@@ -25,3 +25,5 @@ Since this one is a small item, I just listed down with few considerations.
 
 * Private constructors prevent instantiation and subclassing.
 * It's nonsense to ubstantiate util classes.
+
+This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.

@@ -39,3 +39,5 @@ class ExampleActiviy: AppCompatActivity() {
 * Sometimes, static factory methods are not readily distinguishable from other static methods.
 
 Since it's a method, sometimes it's hard for the user of your API to know which static method to use. Even more, they might not know there are static methods. This situation can be solved by using proper conventions.
+
+This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.

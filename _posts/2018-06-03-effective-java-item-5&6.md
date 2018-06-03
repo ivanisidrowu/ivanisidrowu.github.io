@@ -63,3 +63,5 @@ public void onCreate(Bundle savedInstanceState) {
     private String[] mStrings = new String[] {"1", "2"};
 }
 ```
+
+This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.
