@@ -6,16 +6,21 @@ author: Ivan
 categories: Effective Java
 ---
 ## Effective Java Item 5: Avoid creating unnecessary objects
+
 * Reuse immutable objects while you can.
+
 ```Java
 String s = new String("fasdfasdf")
 ```
+
 Don't do this, it creates two strings each time it invokes. Instead, we should do...
+
 ```Java
 String s = "fasdfasdf"
 ```
 
 * Prefer primitives to boxed primitives, and watch out for unintentional autoboxing.
+
 ```Java
 // Slow program
 public static void main(String[] args) {
@@ -26,12 +31,16 @@ public static void main(String[] args) {
   System.out.println(sum);
 }
 ```
+
 This snippet creates 2^31 unnecessary Long instances. "sum" should be primitive to prevent creating unnecessary objects.
 
+
 ## Effective Java Item 6: Eliminate obsolete object references
+
 I personally think this item is important to android development because many cases can lead to memory leak in android. For example, setting a OnClickListener can lead to memory leak and even more. Every thing that holds activity as reference should be checked really carefully.
 
 * Nulling out object references should be the exception rather than the norm, so we should scope the reference.
+
 ```Java
 // Memoery leak example
 public class LeakedListActivity extends ListActivity {
