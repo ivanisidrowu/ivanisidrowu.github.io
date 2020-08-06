@@ -3,7 +3,12 @@ layout: post
 title:  "Try Kotlin"
 date:   2017-07-02 14:37:44
 author: Ivan
-categories: Android
+categories:
+- Kotlin
+- Android
+tags:
+- Kotlin
+- Android
 ---
 Since [Google I/O 2017](https://www.youtube.com/watch?v=X1RVYt2QKQE&t=682s), I think I should learn Kotlin because they announced that Kotlin has became one of the offical support languages in Android. So I want to introduce some of Kotlin features. Also, it's for me to recap how I learn Kotlin in short.
 

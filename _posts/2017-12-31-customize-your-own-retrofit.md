@@ -4,6 +4,7 @@ title:  "Customize Your Own Retrofit"
 date:   2017-12-31 10:00:00
 author: Ivan
 categories: Android
+tags: Android
 ---
 Retrofit is a very useful when sending HTTP requests. Also, it's extremely simple to write. In this post, I will describe how to write a custom Retrofit client and how to extend it. If you haven't got familiar with Retrofit, I suggest that you can go to its [website][1] to know some basics about it.
 

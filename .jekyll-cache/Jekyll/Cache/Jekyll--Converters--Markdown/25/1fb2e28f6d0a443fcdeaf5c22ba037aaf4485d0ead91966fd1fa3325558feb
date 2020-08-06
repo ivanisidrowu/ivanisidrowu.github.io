@@ -1,0 +1,124 @@
+I"�?<p>Since <a href="https://www.youtube.com/watch?v=X1RVYt2QKQE&amp;t=682s">Google I/O 2017</a>, I think I should learn Kotlin because they announced that Kotlin has became one of the offical support languages in Android. So I want to introduce some of Kotlin features. Also, it’s for me to recap how I learn Kotlin in short.</p>
+
+<h2 id="data-types">Data Types</h2>
+<p>One of the greatest things of Kotlin is that the data types in it are easier to understand than Java in my personal opinion. In Kotlin, you can describe data types in two ways, var and val. What’s the difference between them? Var is chanable variable, but val is not. It’s a value. It’s kind of like in Java, when you give a variable final modifier. You can find more information <a href="https://kotlinlang.org/docs/reference/basic-types.html">here</a>.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">num</span> <span class="p">=</span> <span class="mi">9</span>
+<span class="kd">val</span> <span class="py">listSize</span> <span class="p">=</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<p>In addition, you can also specify variable type to a variable. For example, like the code below, the num variable is specified as Integer type. What’s more, in Kotlin, it has basic methods and functions in objects. In this example, num2 can be transformed to Integer easily.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">num</span><span class="p">:</span> <span class="nc">Integer</span> <span class="p">=</span> <span class="mi">9</span>
+<span class="kd">var</span> <span class="py">num2</span><span class="p">:</span> <span class="nc">Double</span> <span class="p">=</span> <span class="mf">1.222</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">num2</span><span class="p">.</span><span class="nf">toInt</span><span class="p">())</span>
+<span class="nf">println</span><span class="p">(</span><span class="mi">88</span><span class="p">.</span><span class="nf">toChar</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="strings">Strings</h2>
+<p>Strings processing might be a little bit easier to deal with in Kotlin because it has basic methods to deal with normal cases.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">str</span> <span class="p">=</span> <span class="s">"John is a boy."</span>
+<span class="nf">println</span><span class="p">(</span><span class="s">"index 2 to 7 ${str.subSequence(2,7)}"</span><span class="p">)</span>
+
+<span class="nf">println</span><span class="p">(</span><span class="s">" the 2nd one ${str[1]}"</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="array">Array</h2>
+<p>Well, let’s look at the code, no need to describe more.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// new an array</span>
+<span class="kd">var</span> <span class="py">arr</span> <span class="p">=</span> <span class="nf">arrayOf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"soya"</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+
+<span class="c1">// contains soya?</span>
+<span class="nf">println</span><span class="p">(</span><span class="s">"is contain soya = ${arr.contatins("</span><span class="n">soya</span><span class="s">")}"</span><span class="p">)</span>
+
+<span class="c1">// take the first one</span>
+<span class="kd">var</span> <span class="py">first</span> <span class="p">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">first</span><span class="p">()</span>
+
+<span class="c1">// index search</span>
+<span class="kd">val</span> <span class="py">index</span> <span class="p">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">indexOf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">// you can also put functions inside arrays</span>
+<span class="kd">var</span> <span class="py">funArray</span> <span class="p">=</span> <span class="nc">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="n">x-</span><span class="p">&gt;</span><span class="n">x</span><span class="p">*</span><span class="n">x</span><span class="p">},</span> <span class="p">{</span><span class="n">x-</span><span class="p">&gt;</span><span class="n">x</span><span class="p">+</span><span class="n">x</span><span class="p">})</span>
+
+<span class="nf">println</span><span class="p">(</span><span class="n">funArray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">funArray</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="c1">// then the printed value will be 4 and 6</span>
+</code></pre></div></div>
+<h2 id="ranges">Ranges</h2>
+<p>Kotlin provides <a href="https://kotlinlang.org/docs/reference/ranges.html">.. operator</a> form helps to experss ranges.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">valueTen</span> <span class="p">=</span> <span class="mi">1</span><span class="o">..</span><span class="mi">10</span>
+<span class="kd">val</span> <span class="py">charsAToZ</span> <span class="p">=</span> <span class="s">"A"</span><span class="o">..</span><span class="s">"Z"</span>
+<span class="kd">val</span> <span class="py">tenToZero</span> <span class="p">=</span> <span class="mi">10</span><span class="p">.</span><span class="nf">downTo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">threeToThirty</span> <span class="p">=</span> <span class="mi">3</span><span class="p">.</span><span class="nf">rangeTo</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="conditionals">Conditionals</h2>
+<p>In Kotlin, <a href="https://kotlinlang.org/docs/reference/control-flow.html">most of the coniditionals</a> are just like the ones in Java. So I’m going to introduce something that is not like Java. For instance, when id is in 0 to 5, it prints part one. If it’s 6, it prints out part two. Also if it is 7, 8, or 9, part three will be printed. Anything else will print part four.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">when</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">5</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"part one"</span><span class="p">)</span>
+  <span class="mi">6</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"part two"</span><span class="p">)</span>
+  <span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"part three"</span><span class="p">)</span>
+  <span class="k">else</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"part four"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="funtions">Funtions</h2>
+<p>In the example below, getSum function takes varargs as many integers and then return an integer. Functions is also easy to understand if you have learned other languages as well.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+  <span class="nf">println</span><span class="p">(</span><span class="s">"Sum = ${getSum(1,2,3)}"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">getSum</span><span class="p">(</span><span class="n">varargs</span> <span class="n">nums</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="py">sum</span> <span class="p">=</span> <span class="mi">0</span>
+  <span class="n">nums</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span><span class="n">n</span> <span class="p">-&gt;</span> <span class="n">sum</span> <span class="p">+=</span> <span class="n">n</span><span class="p">}</span>
+  <span class="k">return</span> <span class="n">sum</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="higher-order-functions">Higher Order Functions</h2>
+<p>In short, <a href="https://kotlinlang.org/docs/reference/lambdas.html">higher order function</a> is a function that takes or returns a function. It’s not easy to understand if you’ve only learned JAVA but not other languages like javascript and so on.</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">nums</span> <span class="p">=</span> <span class="mi">1</span><span class="o">..</span><span class="mi">10</span>
+<span class="kd">val</span> <span class="py">evenNums</span> <span class="p">=</span> <span class="n">nums</span><span class="p">.</span><span class="nf">filter</span> <span class="p">{</span><span class="n">it</span> <span class="p">&amp;</span> <span class="mi">2</span> <span class="p">==</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">eventNums</span><span class="p">.</span><span class="nf">forEach</span><span class="p">{</span> <span class="n">n</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+<p>It’s worth to mention that Kotlin has the operators like Java 8 or RxJava that can let you do some practical stuff to collections, for example, filter, map, reduce, and so on. If you are interested in that, you can check the official documents for more information. (the code above show you exactly how to use filter operator)</p>
+
+<h2 id="extension-functions">Extension Functions</h2>
+<p>Another useful feature will be <a href="https://kotlinlang.org/docs/reference/extensions.html">extension functions</a>. Just like C#, Kotlin also have extension functions. Let’s take a look at examples from document.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">MutableList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;.</span><span class="nf">swap</span><span class="p">(</span><span class="n">index1</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">index2</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">tmp</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span> <span class="c1">// 'this' corresponds to the list</span>
+    <span class="k">this</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span>
+    <span class="k">this</span><span class="p">[</span><span class="n">index2</span><span class="p">]</span> <span class="p">=</span> <span class="n">tmp</span>
+<span class="p">}</span>
+
+<span class="kd">val</span> <span class="py">l</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">l</span><span class="p">.</span><span class="nf">swap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// 'this' inside 'swap()' will hold the value of 'l'</span>
+</code></pre></div></div>
+<p>I don’t need to actually extend MutableList class, and I can add a function to it. For me, it’s really cool!</p>
+
+<h2 id="null-checks">Null Checks</h2>
+<p>In Java, null checks could be really annoying. Imagine that you have to check null before you do everything and there is no other elegant way to do it, and it sucks. In Kotlin, you can use <a href="https://kotlinlang.org/docs/reference/null-safety.html">? operator</a> to do null check, and also they have other operators to help you deal with other situations. The operators could be !!, elvis operator, so on so forth.</p>
+
+<h3 id="java">Java</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="o">(</span><span class="n">activity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">mView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">mImage</span> <span class="o">=</span> <span class="o">(</span><span class="nc">ImageView</span><span class="o">)</span> <span class="n">activity</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">image</span><span class="o">);</span>
+    <span class="n">mViewCount</span> <span class="o">++;</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">mViewCount</span> <span class="o">--;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="kotlin">Kotlin</h3>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">mView</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">mImageView</span> <span class="p">=</span> <span class="n">activity</span><span class="o">?.</span><span class="nf">findViewById</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">image</span><span class="p">)</span>
+  <span class="n">mViewCount</span> <span class="p">++;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="n">mViewCount</span> <span class="p">--;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="summary">Summary</h2>
+<p>Kotlin seems really charming to me because I like its expressions and operators. Many features let me want to put down my JAVA code and go to use Kotlin immediately although now I just new to Kotlin, I still have a lot to learn. I found some of my examples in <a href="https://www.youtube.com/watch?v=H_oGi8uuDpA">this video</a> which is really helpful for people who wanna get started to work on Kotlin. I highlyu recommend! I really excited that Android studio will support Kotlin in 3.0 version. It will be a game chaning version for android development!</p>
+:ET

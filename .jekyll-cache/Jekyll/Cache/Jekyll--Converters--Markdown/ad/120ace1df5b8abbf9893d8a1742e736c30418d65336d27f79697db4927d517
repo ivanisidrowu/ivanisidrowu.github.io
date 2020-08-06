@@ -1,0 +1,62 @@
+I"$<h2 id="effective-java-item-5-avoid-creating-unnecessary-objects">Effective Java Item 5: Avoid creating unnecessary objects</h2>
+
+<ul>
+  <li>Reuse immutable objects while you can.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"fasdfasdf"</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>Don’t do this, it creates two strings each time it invokes. Instead, we should do…</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"fasdfasdf"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Prefer primitives to boxed primitives, and watch out for unintentional autoboxing.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Slow program</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">Long</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span> <span class="n">i</span> <span class="o">++)</span> <span class="o">{</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This snippet creates 2^31 unnecessary Long instances. “sum” should be primitive to prevent creating unnecessary objects.</p>
+
+<h2 id="effective-java-item-6-eliminate-obsolete-object-references">Effective Java Item 6: Eliminate obsolete object references</h2>
+
+<p>I personally think this item is important to android development because many cases can lead to memory leak in android. For example, setting a OnClickListener can lead to memory leak and even more. Every thing that holds activity as reference should be checked really carefully.</p>
+
+<ul>
+  <li>Nulling out object references should be the exception rather than the norm, so we should scope the reference.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Memoery leak example</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakedListActivity</span> <span class="kd">extends</span> <span class="nc">ListActivity</span> <span class="o">{</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+
+    <span class="c1">// Use an existing ListAdapter that will map an array</span>
+    <span class="c1">// of strings to TextViews</span>
+    <span class="n">setListAdapter</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayAdapter</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="k">this</span><span class="o">,</span>
+            <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">simple_list_item_1</span><span class="o">,</span> <span class="n">mStrings</span><span class="o">));</span>
+    <span class="n">getListView</span><span class="o">().</span><span class="na">setOnItemClickListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">OnItemClickListener</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="kd">final</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">junk</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">10</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="o">];</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onItemClick</span><span class="o">(</span><span class="nc">AdapterView</span><span class="o">&lt;?&gt;</span> <span class="n">arg0</span><span class="o">,</span> <span class="nc">View</span> <span class="n">arg1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">arg2</span><span class="o">,</span>
+                <span class="kt">long</span> <span class="n">arg3</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">});</span>     
+<span class="o">}</span>
+    <span class="kd">private</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">mStrings</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">"1"</span><span class="o">,</span> <span class="s">"2"</span><span class="o">};</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.</p>
+:ET

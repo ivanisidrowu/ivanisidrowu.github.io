@@ -1,0 +1,28 @@
+I";<h2 id="effective-java-item-3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type">Effective Java Item 3: Enforce the singleton property with a private constructor or an enum type</h2>
+
+<h3 id="advantages">Advantages</h3>
+
+<ul>
+  <li>It’s easy to be understood as a singleton class, and the class clients can get instance from getInstance method.</li>
+  <li>If we change the APIs of the class, we don’t need to modify much code.</li>
+  <li>It uses private constructor to protect inner methods.</li>
+  <li>It’s more concise way to create singleton because it provides free serialization and singleton guarantees.</li>
+</ul>
+
+<h3 id="disadvantages">Disadvantages</h3>
+
+<ul>
+  <li>Making a class a singleton makes it difficult to test its clients.</li>
+</ul>
+
+<h2 id="effective-java-item-4-enforce-noninstantiability-with-a-private-constructor">Effective Java Item 4: Enforce noninstantiability with a private constructor</h2>
+
+<p>Since this one is a small item, I just listed down with few considerations.</p>
+
+<ul>
+  <li>Private constructors prevent instantiation and subclassing.</li>
+  <li>It’s nonsense to ubstantiate util classes.</li>
+</ul>
+
+<p>This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.</p>
+:ET

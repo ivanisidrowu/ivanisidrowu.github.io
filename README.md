@@ -1,3 +1,9 @@
-# ivanisidrowu.github.io
-my profile and blog
-I use this theme to apply on my blog. (https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll)
+# My Profile and Blog
+
+I use the Jekyll theme below to apply to my website.
+
+## jekyll-theme-hamilton
+https://github.com/ngzhio/jekyll-theme-hamilton
+
+
+Check it out if you are interested in `Jekyll` or their themes.

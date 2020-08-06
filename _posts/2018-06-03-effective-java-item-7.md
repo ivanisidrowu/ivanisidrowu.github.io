@@ -1,11 +1,14 @@
 ---
 layout: post
-title:  "Effective Java Item 7"
+title:  "Effective Java Item 7: Avoid finalizer"
 date:   2018-06-03 14:00:00
 author: Ivan
-categories: Effective Java
+categories: 
+- EffectiveJava
+- Java
+tags: Java
 ---
-## Effective Java Item 7: Avoid finalizer
+Avoid finalizer
 
 * Finalizers are unpredictabile, often dangerous, and unnecessary.
 

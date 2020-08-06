@@ -1,0 +1,32 @@
+I"�<p>Builder pattern is a really common pattern when we try to create an instance that has many parameters. For example, if we want to create a bean and the bean has a lot of required and optional parameters. Using builder to solve this problem can be really useful.</p>
+
+<h2 id="advantages">Advantages</h2>
+<ul>
+  <li>The builder pattern is a good choice when designing classes whose constructors or static factories would have more than a handful of parameters.</li>
+</ul>
+
+<p>It’s just like Android AlertDialog. We can decide which parameters in the dialog by using builder.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">AlertDialog</span><span class="o">.</span><span class="na">Builder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AlertDialog</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">getActivity</span><span class="o">());</span>
+<span class="n">builder</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">dialog_fire_missiles</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setPositiveButton</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">fire</span><span class="o">,</span> <span class="k">new</span> <span class="nc">DialogInterface</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="nc">DialogInterface</span> <span class="n">dialog</span><span class="o">,</span> <span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="c1">// FIRE ZE MISSILES!</span>
+             <span class="o">}</span>
+         <span class="o">})</span>
+         <span class="o">.</span><span class="na">setNegativeButton</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">cancel</span><span class="o">,</span> <span class="k">new</span> <span class="nc">DialogInterface</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="nc">DialogInterface</span> <span class="n">dialog</span><span class="o">,</span> <span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="c1">// User cancelled the dialog</span>
+             <span class="o">}</span>
+         <span class="o">});</span>
+<span class="c1">// Create the AlertDialog object and return it</span>
+<span class="n">builder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+</code></pre></div></div>
+<h2 id="disadvantages">Disadvantages</h2>
+<ul>
+  <li>Write more code</li>
+</ul>
+
+<p>You have to write another builder class. Another pointer is that it’s harder to add parameters to the class which the builder create instance for you.</p>
+
+<p>This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.</p>
+:ET

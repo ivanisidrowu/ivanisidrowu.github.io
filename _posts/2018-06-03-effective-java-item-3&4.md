@@ -3,9 +3,13 @@ layout: post
 title:  "Effective Java Item 3&4"
 date:   2018-06-03 00:00:00
 author: Ivan
-categories: Effective Java
+categories: 
+- EffectiveJava
+- Java
+tags: Java
 ---
-## Effective Java Item 3: Enforce the singleton property with a private constructor or an enum type
+
+Enforce the singleton property with a private constructor or an enum type
 
 ### Advantages
 
