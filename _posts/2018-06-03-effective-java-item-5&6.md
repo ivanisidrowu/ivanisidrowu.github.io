@@ -3,9 +3,13 @@ layout: post
 title:  "Effective Java Item 5&6"
 date:   2018-06-03 10:00:00
 author: Ivan
-categories: Effective Java
+categories: 
+- EffectiveJava
+- Java
+tags: Java
 ---
-## Effective Java Item 5: Avoid creating unnecessary objects
+
+Avoid creating unnecessary objects
 
 * Reuse immutable objects while you can.
 

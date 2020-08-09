@@ -3,7 +3,10 @@ layout: post
 title:  "Effective Java Item 2: Consider a Builder When Face with Many Constructor Parameters"
 date:   2018-04-15 10:00:00
 author: Ivan
-categories: Effective Java
+categories: 
+- EffectiveJava
+- Java
+tags: Java
 ---
 Builder pattern is a really common pattern when we try to create an instance that has many parameters. For example, if we want to create a bean and the bean has a lot of required and optional parameters. Using builder to solve this problem can be really useful.
 

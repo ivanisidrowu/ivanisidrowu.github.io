@@ -1,0 +1,2 @@
+I"ù<p>This is the first article about Effective Java Items. I read the 2nd version not the 3rd version which is just came out about a month ago. Item 1 is talking about static factory methods. This pattern is common in Android development. For example, when we are using Toast, we pass parameters and the static methods will return a Toast instance for us depending on the parameters. Using static factory methods sometimes could be good, but not always good because it has advantages and disadvantages.</p>
+:ET

@@ -2,49 +2,86 @@
 layout: default
 ---
 
-<!-- Post Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+  <header class="post-header">
 
-				{{ content }}
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.modified_date -%}
+        ~ 
+        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
+        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        • {% for author in page.author %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      {%- endif -%}
+    </p>
 
-                <hr>
+  </header>
 
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-                    </li>
-                    {% endif %}
-                </ul>
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
 
-            </div>
-        </div>
-    </div>
+  <footer class="post-footer">
+    {% if page.categories.size > 0 %}
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          {% assign categories = page.categories | sort %}
+          {% for category in categories %}
+            <li class="post-category">
+              {% assign slugified_category = category | slugify %}
+              <a href="{{ '/categories/#:category' | replace: ':category', slugified_category | relative_url }}">{{ category }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if page.tags.size > 0 %}
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          {% assign tags = page.tags | sort %}
+          {% for tag in tags %}
+            <li class="post-tag">
+              {% assign slugified_tag = tag | slugify %}
+              <a href="{{ '/tags/#:tag' | replace: ':tag', slugified_tag | relative_url }}">{{ slugified_tag }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <nav class="post-pagination" role="navigation">
+      {% if page.previous %}
+        <a class="post-previous" href="{{ page.previous.url | relative_url }}">
+          <i class="fas fa-arrow-left"></i> {{ page.previous.title | markdownify | strip_html }}
+        </a>
+      {% endif %}
+    
+      {% if page.next %}
+        <a class="post-next" href="{{ page.next.url | relative_url }}">
+          {{ page.next.title | markdownify | strip_html }} <i class="fas fa-arrow-right"></i>
+        </a>
+      {% endif %}
+    </nav>
+  </footer>
+
+  {% if page.comments != false and jekyll.environment == "production" %}
+    {% include disqus.html %}
+  {% endif %}
+  
 </article>
-
-<hr>

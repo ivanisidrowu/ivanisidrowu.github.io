@@ -1,0 +1,50 @@
+I"�<p>This is the first article about Effective Java Items. I read the 2nd version not the 3rd version which is just came out about a month ago. Item 1 is talking about static factory methods. This pattern is common in Android development. For example, when we are using Toast, we pass parameters and the static methods will return a Toast instance for us depending on the parameters. Using static factory methods sometimes could be good, but not always good because it has advantages and disadvantages.</p>
+
+<h1 id="static-factory-method">Static Factory Method</h1>
+<h2 id="advantages">Advantages</h2>
+<ul>
+  <li>Static factory methods have name unlike Constructors.</li>
+</ul>
+
+<p>We can give a name to the static factory methods. When we are using them, the name of the methods will provide meaningful information for us to use static factory methods. Conversely, Constructors can not do that. We can only guess the meaning from the parameters. In addition, due to the overloading rules, we can only have one unique sequence of parameters in Constructors, so if you want create an object under different circumstances. Some developers temp to shift around the sequences of parameters, but this is not the right implementation.</p>
+
+<ul>
+  <li>Static factory methods are not required to create a new obejct each time they are invoked.</li>
+</ul>
+
+<p>If creating an instance of a class is expensive, we could cache an instance then return it. So we don’t have to create it each time we invoke the method. For example, in Android world, we often use singleton pattern to return the same instance and to be sure that we only create it once.</p>
+
+<ul>
+  <li>
+    <p>Static factory methods are able to return any subtype of the return type.</p>
+  </li>
+  <li>
+    <p>Static factory methods reduce the verbosity of creating parameterized type instances.</p>
+  </li>
+</ul>
+
+<p>In Android, sometimes we want to launch the same activity or fragments with the same intents and bundles. Writing those paramters and setting them into intents are boilerplates. Static factory methods can be useful in this case.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ExampleActiviy</span><span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">newIntent</span><span class="p">():</span> <span class="nc">Intent</span> <span class="p">{</span>
+      <span class="c1">// ...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="disadvantages">Disadvantages</h2>
+<ul>
+  <li>
+    <p>If you provide only static factory methods and the return classes do not have public or protected constructors, they cannot be subclassed.</p>
+  </li>
+  <li>
+    <p>Sometimes, static factory methods are not readily distinguishable from other static methods.</p>
+  </li>
+</ul>
+
+<p>Since it’s a method, sometimes it’s hard for the user of your API to know which static method to use. Even more, they might not know there are static methods. This situation can be solved by using proper conventions.</p>
+
+<p>This series of articles are notes when I am reading a book, called Effective Java (2nd version). If you are interested, you should definitely check it out.</p>
+:ET

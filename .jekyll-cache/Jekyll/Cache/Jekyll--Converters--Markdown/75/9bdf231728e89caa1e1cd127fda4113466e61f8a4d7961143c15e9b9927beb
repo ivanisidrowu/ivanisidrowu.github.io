@@ -1,0 +1,2 @@
+I"<p>Builder pattern is a really common pattern when we try to create an instance that has many parameters. For example, if we want to create a bean and the bean has a lot of required and optional parameters. Using builder to solve this problem can be really useful.</p>
+:ET
