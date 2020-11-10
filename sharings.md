@@ -7,11 +7,13 @@ permalink: /sharings/
 
 ## Kotlin Flow Application and Testing on Android
 
+<!--
 * 2020/11/19 **_@Jcconf_**
 * Language: English
 * Website: [https://jcconf.tw/2020/](https://jcconf.tw/2020/)
 
 Slides is coming right up!
+-->
 
 * 2020/09/29 **_@AndroidTaipei_**
 * Language: Chinese
