@@ -22,7 +22,7 @@ GEM
     ffi (1.13.1)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
-    i18n (0.9.5)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jekyll (3.8.7)
       addressable (~> 2.4)
@@ -48,7 +48,7 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    kramdown (2.3.0)
+    kramdown (1.17.0)
       rexml
     liquid (4.0.3)
     listen (3.2.1)
