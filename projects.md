@@ -32,9 +32,9 @@ A floating view helper lib to let you create floating view above other views!
 * Scalable view supported
 * Fullscreen supported
 
-![](https://github.com/ivanisidrowu/palumu/blob/master/demo/palumu-demo.gif)
+[Demo GIF1](https://github.com/ivanisidrowu/palumu/blob/master/demo/palumu-demo.gif)
 
-<img src="https://github.com/ivanisidrowu/palumu/blob/master/demo/draggable-demo.gif" width="216" height="384">
+[Demo GIF2](https://github.com/ivanisidrowu/palumu/blob/master/demo/draggable-demo.gif)
 
 # [Vago](https://github.com/ivanisidrowu/vago) (2018)
 
