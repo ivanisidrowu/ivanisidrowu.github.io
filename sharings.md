@@ -7,13 +7,13 @@ permalink: /sharings/
 
 ## Kotlin Flow Application and Testing on Android
 
-<!--
 * 2020/11/19 **_@Jcconf_**
 * Language: English
 * Website: [https://jcconf.tw/2020/](https://jcconf.tw/2020/)
 
-Slides is coming right up!
--->
+<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.1972%;"><iframe src="https://speakerdeck.com/player/9e347f467a414f88b463bd4d14255f88" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen scrolling="no" allow="encrypted-media"></iframe></div>
+
+<br>
 
 * 2020/09/29 **_@AndroidTaipei_**
 * Language: Chinese
